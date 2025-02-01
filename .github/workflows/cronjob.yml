@@ -1,4 +1,5 @@
 name: Run OCR Job
+
 on:
   schedule:
     - cron: '*/5 * * * *'  # Runs every 5 minutes
@@ -8,11 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
       - name: Install Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
+          
       - name: Install dependencies
         run: pip install requests
+        
       - name: Run script
-        run: python main.py  # Change from script.py to main.py
+        run: python main.py
